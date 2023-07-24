@@ -1,3 +1,3 @@
 # ReversibleRigidbody
  Scripts for reversing 2D and 3D Rigidbodies in time for Godot 4.1.
- Still not complete but should be very soon.
+ Will add to Godot Asset Library once the 3D Rigidbodies are in a better state(currently buggy).
