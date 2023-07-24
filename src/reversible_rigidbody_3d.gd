@@ -18,7 +18,7 @@ var rewinding := false
 
 ## How many time in seconds should the reverse_buffer store for the given object movement.
 ## When trying to reverse time, if the object goes over the time limit it will move to the last recorded position in the buffer.
-@export_range(1.0, 10.0) var reverse_buffer_time: float = 3.0
+@export_range(1.0, 17.0) var reverse_buffer_time: float = 3.0
 
 ## Determines wether the object should keep its momentum from the rewind state or not.
 @export var keep_momentum := false
