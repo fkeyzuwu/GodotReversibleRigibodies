@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce63x861jmj5t"]
+
+[ext_resource type="Script" path="res://examples/2d/world_2d.gd" id="1_efhm1"]
+[ext_resource type="PackedScene" uid="uid://he3p01gstg7d" path="res://examples/2d/ball.tscn" id="1_m6f03"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ht4bi"]
+a = Vector2(1152, 0)
+b = Vector2(1152, 648)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vf3y5"]
+a = Vector2(0, 1152)
+b = Vector2(0, 0)
+
+[node name="World2D" type="Node2D"]
+script = ExtResource("1_efhm1")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Polygon2D" parent="Walls"]
+color = Color(0.353, 0.671, 0.592, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_ht4bi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-1152, 0)
+shape = SubResource("SegmentShape2D_ht4bi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_vf3y5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 648)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_vf3y5")
+
+[node name="Ball" parent="." instance=ExtResource("1_m6f03")]
+position = Vector2(394, 212)
+
+[node name="Ball2" parent="." instance=ExtResource("1_m6f03")]
+position = Vector2(726, 177)
+
+[node name="Ball3" parent="." instance=ExtResource("1_m6f03")]
+position = Vector2(577, 450)
+
+[node name="Ball4" parent="." instance=ExtResource("1_m6f03")]
+position = Vector2(198, 416)
