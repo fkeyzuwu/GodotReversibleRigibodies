@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://doc5q1v03xcs0"]
+[gd_scene load_steps=7 format=3 uid="uid://doc5q1v03xcs0"]
 
 [ext_resource type="Script" path="res://examples/3d/sphere.gd" id="1_r0cr3"]
+[ext_resource type="Material" uid="uid://bk0cuuqcwj51t" path="res://examples/3d/Outline.material" id="2_poecl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7bm5g"]
 bounce = 0.95
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5atlh"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lir4"]
+next_pass = ExtResource("2_poecl")
 albedo_color = Color(0.878431, 0.564706, 0.352941, 1)
 metallic = 0.76
 roughness = 0.58
@@ -17,6 +17,8 @@ proximity_fade_distance = 1988.76
 [sub_resource type="SphereMesh" id="SphereMesh_icu07"]
 material = SubResource("StandardMaterial3D_7lir4")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_5atlh"]
+
 [node name="Sphere" type="RigidBody3D" node_paths=PackedStringArray("collision_shape_3d")]
 physics_material_override = SubResource("PhysicsMaterial_7bm5g")
 script = ExtResource("1_r0cr3")
@@ -24,8 +26,8 @@ collision_shape_3d = NodePath("CollisionShape3D")
 reverse_buffer_time = 8.0
 keep_momentum = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_5atlh")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_icu07")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5atlh")
