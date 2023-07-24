@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://doc5q1v03xcs0"]
+[gd_scene load_steps=8 format=3 uid="uid://baj2b0nosj4k5"]
 
 [ext_resource type="Script" path="res://examples/3d/sphere.gd" id="1_r0cr3"]
-[ext_resource type="Texture2D" uid="uid://dsrpuqcnkwm0u" path="res://icon.svg" id="2_eqlk8"]
+[ext_resource type="Texture2D" uid="uid://dsrpuqcnkwm0u" path="res://examples/3d/icon.svg" id="2_fxrjx"]
 [ext_resource type="Material" uid="uid://bk0cuuqcwj51t" path="res://examples/3d/Outline.material" id="2_poecl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7bm5g"]
@@ -10,7 +10,7 @@ bounce = 0.95
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lir4"]
 next_pass = ExtResource("2_poecl")
 albedo_color = Color(0.631373, 0.470588, 0.717647, 1)
-albedo_texture = ExtResource("2_eqlk8")
+albedo_texture = ExtResource("2_fxrjx")
 metallic = 0.76
 roughness = 0.58
 rim_enabled = true
