@@ -6,8 +6,7 @@ var _linear_velocity_buffer : PackedVector2Array
 var _angular_velocity_buffer : PackedFloat32Array
 
 var _buffer_index := 0
-@onready var _buffer_size := int(Engine.physics_ticks_per_second * reverse_buffer_time)
-
+@onready var _buffer_size := 512
 ## For checking if the object is currently rewinding.
 ## WARNING: Only use this as a getter. If you want to set if the object is rewinding, use the start_rewind() or stop_rewind() functions.
 ## Modifying this variable by hand might result in unexpected behaviour.
@@ -15,10 +14,6 @@ var rewinding := false
 
 ## The CollisionShape2D of the given ReversibleRigidBody2D. 
 @export var collision_shape_2d: CollisionShape2D
-
-## How many time in seconds should the reverse_buffer store for the given object movement.
-## When trying to reverse time, if the object goes over the time limit it will move to the last recorded position in the buffer.
-@export_range(1.0, 17.0) var reverse_buffer_time: float = 3.0
 
 ## Determines wether the object should keep its momentum from the rewind state or not.
 @export var keep_momentum := false

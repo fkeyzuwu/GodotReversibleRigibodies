@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce63x861jmj5t"]
+[gd_scene load_steps=4 format=3 uid="uid://ce63x861jmj5t"]
 
-[ext_resource type="Script" path="res://examples/2d/world_2d.gd" id="1_efhm1"]
 [ext_resource type="PackedScene" uid="uid://he3p01gstg7d" path="res://examples/2d/ball.tscn" id="1_m6f03"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ht4bi"]
@@ -12,7 +11,6 @@ a = Vector2(0, 1152)
 b = Vector2(0, 0)
 
 [node name="World2D" type="Node2D"]
-script = ExtResource("1_efhm1")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 

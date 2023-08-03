@@ -9,12 +9,11 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqo5l"]
 radius = 45.0
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("collision_shape_2d")]
+[node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bhh6d")
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource("1_uhbv1")
-collision_shape_2d = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
