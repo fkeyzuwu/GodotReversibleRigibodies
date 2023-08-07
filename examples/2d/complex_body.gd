@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var force := 500.0
+var force := 450.0
 
 var position_buffer: PackedVector2Array
 var rotation_buffer: PackedFloat32Array
@@ -13,6 +13,8 @@ var buffer_index := 0
 var rewinding := false
 
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
+
+@export var keep_momentum := false
 
 func _ready() -> void:
 	position_buffer.resize(buffer_size)
@@ -38,14 +40,24 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	state.transform = Transform2D(rotation_buffer[buffer_index], position_buffer[buffer_index])
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("apply_ball_force"):
-		var direction = Vector2(randf_range(-1 , 1), randf_range(-1 , 1))
-		apply_central_impulse(direction * force)
+	if event.is_action_pressed("apply_force"):
+		apply_random_force()
 	elif event.is_action_pressed("rewind"):
-		rewinding = true
-		collision_polygon_2d.set_deferred("disabled", true)
+		start_rewind()
 	elif event.is_action_released("rewind"):
-		linear_velocity = linear_velocity_buffer[buffer_index]
-		angular_velocity = angular_velocity_buffer[buffer_index]
-		rewinding = false
-		collision_polygon_2d.set_deferred("disabled", false)
+		stop_rewind()
+
+func start_rewind() -> void:
+	rewinding = true
+	collision_polygon_2d.set_deferred("disabled", true)
+
+func stop_rewind() -> void:
+	rewinding = false
+	collision_polygon_2d.set_deferred("disabled", false)
+	var momentum = int(keep_momentum) * -2 + 1
+	linear_velocity = momentum * linear_velocity_buffer[buffer_index]
+	angular_velocity = momentum * angular_velocity_buffer[buffer_index]
+
+func apply_random_force() -> void:
+	var direction = Vector2(randf_range(-1 , 1), randf_range(-1 , 1))
+	apply_central_impulse(direction * force)
