@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://du7vlly72r8xl"]
+
+[ext_resource type="Script" path="res://examples/2d/ball.gd" id="1_dcpph"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhh6d"]
+bounce = 1.0
+
+[node name="Body" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_bhh6d")
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_dcpph")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.431373, 1, 1, 1)
+polygon = PackedVector2Array(-28, -37, 124, -17, 90, 85, -47, 66, 58, 36, 69, 0, -63, 16, -85, -60, -19, -139, 111, -99)
+vertex_colors = PackedColorArray(0.109804, 0.572549, 0.701961, 1, 0.572549, 0.631373, 0.901961, 1, 0.509804, 0.576471, 0.992157, 1, 0.372549, 0.270588, 0.333333, 1, 0.623529, 0.682353, 0.662745, 1, 1, 0.52549, 0.458824, 1, 0.627451, 0.847059, 0.929412, 1, 0.74902, 0.752941, 0.976471, 1, 0.588235, 0.368627, 0.627451, 1, 0.862745, 0.572549, 0, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-28, -37, 124, -17, 90, 85, -47, 66, 58, 36, 69, 0, -63, 16, -85, -60, -19, -139, 111, -99)
