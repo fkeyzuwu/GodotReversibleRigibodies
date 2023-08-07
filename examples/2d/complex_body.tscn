@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://du7vlly72r8xl"]
 
-[ext_resource type="Script" path="res://examples/2d/ball.gd" id="1_dcpph"]
+[ext_resource type="Script" path="res://examples/2d/complex_body.gd" id="1_gjqow"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bhh6d"]
 bounce = 1.0
@@ -9,7 +9,7 @@ bounce = 1.0
 physics_material_override = SubResource("PhysicsMaterial_bhh6d")
 gravity_scale = 0.0
 linear_damp = 2.0
-script = ExtResource("1_dcpph")
+script = ExtResource("1_gjqow")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.431373, 1, 1, 1)
