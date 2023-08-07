@@ -30,10 +30,12 @@ func _ready() -> void:
 	_angular_velocity_buffer.resize(_buffer_size)
 
 func start_rewind() -> void:
+	print("start rewind")
 	rewinding = true
 	collision_shape_3d.set_deferred("disabled", true)
 
 func stop_rewind() -> void:
+	print("stop rewind")
 	rewinding = false
 	collision_shape_3d.set_deferred("disabled", false)
 	var momentum = int(keep_momentum) * -2 + 1
@@ -58,4 +60,4 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	_buffer_index %= _buffer_size
 	_buffer_index -= 1
 	state.transform.origin = _position_buffer[_buffer_index]
-	rotation = _rotation_buffer[_buffer_index]
+	state.transform.basis = Basis.from_euler(_rotation_buffer[_buffer_index])

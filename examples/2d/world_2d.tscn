@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce63x861jmj5t"]
 
 [ext_resource type="Script" path="res://examples/2d/world_2d.gd" id="1_efhm1"]
-[ext_resource type="PackedScene" uid="uid://he3p01gstg7d" path="res://examples/2d/ball.tscn" id="1_m6f03"]
+[ext_resource type="PackedScene" path="res://examples/2d/ball.tscn" id="1_m6f03"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ht4bi"]
 a = Vector2(1152, 0)

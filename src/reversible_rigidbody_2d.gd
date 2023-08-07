@@ -57,5 +57,4 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 	_buffer_index %= _buffer_size
 	_buffer_index -= 1
-	state.transform.origin = _position_buffer[_buffer_index]
-	rotation = _rotation_buffer[_buffer_index]
+	state.transform = Transform2D(_rotation_buffer[_buffer_index], _position_buffer[_buffer_index])
